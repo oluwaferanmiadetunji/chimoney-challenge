@@ -1,11 +1,11 @@
 import { lazy } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { ROUTES } from "src/constants";
+import { ROUTES } from "utils/constants";
 
-const Cart = lazy(() => import("src/pages/cart"));
-const Checkout = lazy(() => import("src/pages/checkout"));
-const ProductDetails = lazy(() => import("src/pages/product-details"));
-const Products = lazy(() => import("src/pages/products"));
+const Cart = lazy(() => import("pages/cart"));
+const Checkout = lazy(() => import("pages/checkout"));
+const ProductDetails = lazy(() => import("pages/product-details"));
+const Products = lazy(() => import("pages/products"));
 
 const router = createBrowserRouter([
   {

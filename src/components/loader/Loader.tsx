@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const Screen = styled.div`
   position: relative;
@@ -19,7 +19,7 @@ const Screen = styled.div`
       opacity: 1;
     }
   }
-`
+`;
 
 const Balls = styled.div`
   display: flex;
@@ -58,7 +58,7 @@ const Balls = styled.div`
       transform: translateY(0);
     }
   }
-`
+`;
 
 const LoadingScreen = () => {
   return (
@@ -69,7 +69,7 @@ const LoadingScreen = () => {
         <div className="ball three"></div>
       </Balls>
     </Screen>
-  )
-}
+  );
+};
 
-export default LoadingScreen
+export default LoadingScreen;

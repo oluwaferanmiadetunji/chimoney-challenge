@@ -1,19 +1,13 @@
-import { useState } from "react";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import AppRoutes from "src/pages/AppRoutes";
+import AppRoutes from "pages/AppRoutes";
 import Box from "@mui/material/Box";
-
-const theme = createTheme();
+import { ToastContainer } from "react-toastify";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <ThemeProvider theme={theme}>
-      <Box>
-        <AppRoutes />
-      </Box>
-    </ThemeProvider>
+    <Box>
+      <ToastContainer />
+      <AppRoutes />
+    </Box>
   );
 }
 

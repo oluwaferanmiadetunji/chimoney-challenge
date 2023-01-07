@@ -1,5 +1,11 @@
+import Layout from "components/layout";
+
 const Products = () => {
-  return <div>Products</div>;
+  return (
+    <Layout>
+      <div>Products</div>
+    </Layout>
+  );
 };
 
 export default Products;
