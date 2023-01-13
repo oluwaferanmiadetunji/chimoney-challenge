@@ -1,5 +1,11 @@
+import Layout from "components/layout";
+
 const Checkout = () => {
-  return <div>Checkout</div>;
+  return (
+    <Layout>
+      <div>Checkout</div>
+    </Layout>
+  );
 };
 
 export default Checkout;

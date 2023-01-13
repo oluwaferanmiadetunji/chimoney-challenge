@@ -1,5 +1,11 @@
+import Layout from "components/layout";
+
 const Details = () => {
-  return <div>Details</div>;
+  return (
+    <Layout>
+      <div>Details</div>
+    </Layout>
+  );
 };
 
 export default Details;

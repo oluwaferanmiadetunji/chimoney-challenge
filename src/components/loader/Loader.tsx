@@ -6,7 +6,7 @@ const Screen = styled.div`
   width: 100%;
   opacity: 0;
   animation: fade 0.4s ease-in forwards;
-  background: rgb(11, 15, 25);
+  background: #ffffff;
 
   @keyframes fade {
     0% {
@@ -32,7 +32,7 @@ const Balls = styled.div`
     height: 20px;
     width: 20px;
     border-radius: 50%;
-    background: white;
+    background: #1b1b1b;
     margin: 0 6px 0 0;
     animation: oscillate 0.7s ease-in forwards infinite;
   }

@@ -4,7 +4,6 @@ import App from "./App";
 import Loader from "components/loader";
 import ThemeProvider from "theme";
 import "react-toastify/dist/ReactToastify.css";
-import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(

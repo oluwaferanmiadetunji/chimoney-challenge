@@ -1,25 +1,19 @@
-import { toast } from 'react-toastify'
+import { toast } from "react-toastify";
 
-export const saveItem = (key: string, payload: any): void => {
+export const saveItem = (key: string, payload: any) => {
   try {
-    localStorage.setItem(key, JSON.stringify(payload))
+    return localStorage.setItem(key, JSON.stringify(payload));
   } catch (error) {
-    toast.error('Error saving item')
+    toast.error("Error saving item");
   }
-}
+};
 
-export const removeItem = (key: string): void => {
+export const getItem = (key: string) => {
   try {
-    localStorage.removeItem(key)
-  } catch (error) {
-    toast.error('Error deleting item')
-  }
-}
+    const item = localStorage.getItem(key);
 
-export const getItem = (key: string): void => {
-  try {
-    localStorage.getItem(key)
+    return item ? JSON.parse(item) : [];
   } catch (error) {
-    toast.error('Error getting item')
+    toast.error("Error getting item");
   }
-}
+};

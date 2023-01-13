@@ -1,34 +1,46 @@
-import { useState, MouseEvent } from "react";
-import AppBar from "@mui/material/AppBar";
+import { useContext } from "react";
 import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
+import Link from "@mui/material/Link";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-import Container from "@mui/material/Container";
-import MenuItem from "@mui/material/MenuItem";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import { LayoutProps } from "types/layout.types";
 import { ROUTES } from "utils/constants";
-
+import Typography from "@mui/material/Typography";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import Container from "@mui/material/Container";
+import { LayoutProps } from "types/layout.types";
+import Tooltip from "@mui/material/Tooltip";
+import Badge from "@mui/material/Badge";
+import ShopIcon from "@mui/icons-material/Shop";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { useLocation } from "react-router-dom";
+import ProductContext from "context/ProductContext";
 import styles from "./styles";
 
-const settings = ["Products", "Cart", "Logout"];
+const notificationsLabel = (count: number) => {
+  if (count === 0) {
+    return "no notifications";
+  }
+  if (count > 99) {
+    return "more than 99 notifications";
+  }
+  return `${count} notifications`;
+};
 
 const Layout = (props: LayoutProps) => {
-  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
+  const location = useLocation();
 
-  const handleOpenUserMenu = (event: MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
+  const isActive = (route: string): boolean => {
+    return location.pathname === route;
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+  const { cart } = useContext(ProductContext);
 
+  const cartCount = cart.reduce((count, curItem) => {
+    return count + curItem.quantity;
+  }, 0);
   return (
     <Box sx={styles.container}>
-      <AppBar position="absolute">
+      <AppBar position="fixed">
         <Toolbar disableGutters sx={styles.toolbar}>
           <Typography
             variant="h6"
@@ -37,41 +49,38 @@ const Layout = (props: LayoutProps) => {
             href={ROUTES.PRODUCTS}
             sx={styles.icon}
           >
-            LOGO
+            SHOP
           </Typography>
 
-          <Box>
-            <IconButton onClick={handleOpenUserMenu}>
-              <AccountCircleIcon fontSize="large" color="secondary" />
-            </IconButton>
+          <Box sx={styles.profile}>
+            <Tooltip title="Products">
+              <Link href={ROUTES.PRODUCTS} underline="none">
+                <IconButton size="large">
+                  <ShopIcon
+                    fontSize="medium"
+                    color={isActive(ROUTES.PRODUCTS) ? "success" : "secondary"}
+                  />
+                </IconButton>
+              </Link>
+            </Tooltip>
 
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
+            <Tooltip title="Cart">
+              <Link href={ROUTES.CART} underline="none">
+                <IconButton aria-label={notificationsLabel(cartCount)}>
+                  <Badge badgeContent={cartCount} color="error" max={99}>
+                    <ShoppingCartIcon
+                      fontSize="medium"
+                      color={isActive(ROUTES.CART) ? "success" : "secondary"}
+                    />
+                  </Badge>
+                </IconButton>
+              </Link>
+            </Tooltip>
           </Box>
         </Toolbar>
       </AppBar>
 
-      <Container>{props.children}</Container>
+      <Container sx={styles.children}>{props.children}</Container>
     </Box>
   );
 };
