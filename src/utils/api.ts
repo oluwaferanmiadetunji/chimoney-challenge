@@ -14,7 +14,7 @@ export const getProducts = async () => {
       },
     });
 
-    return response?.data?.data?.giftCardsRLD;
+    return response?.data?.data?.ecommerce;
   } catch (error) {
     toast.error("Error fetching products");
     return null;

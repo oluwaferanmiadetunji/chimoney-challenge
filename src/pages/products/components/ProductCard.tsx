@@ -23,13 +23,13 @@ const ProductCard = ({ product }: { product: ProductType }) => {
           <CardMedia
             component="img"
             height="140"
-            image={product.img}
-            alt={product.productName}
+            image={product.thumbnail}
+            alt={product.name}
           />
 
           <CardContent>
             <Typography sx={styles.productName} gutterBottom>
-              {shortenProductName(product.productName)}
+              {shortenProductName(product.name)}
             </Typography>
           </CardContent>
         </CardActionArea>

@@ -38,6 +38,7 @@ const Layout = (props: LayoutProps) => {
   const cartCount = cart.reduce((count, curItem) => {
     return count + curItem.quantity;
   }, 0);
+  
   return (
     <Box sx={styles.container}>
       <AppBar position="fixed">

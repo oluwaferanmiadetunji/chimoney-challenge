@@ -5,3 +5,5 @@ export const shortenProductName = (name: string, length = 22) => {
 
   return name;
 };
+
+export const formatPrice = (price: number) => price.toFixed(2);

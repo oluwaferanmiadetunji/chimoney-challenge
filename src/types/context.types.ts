@@ -4,10 +4,8 @@ export type ProductContextType = {
   products: ProductType[];
   cart: any[];
   addProductToCart: (product: ProductType) => void;
-  removeProductFromCart: (productId: number) => void;
-};
-
-export type ItemType = {
-  id: number | string;
-  qty: number;
+  removeProductFromCart: (productId: string) => void;
+  deleteItemFromCart: (productId: string) => void;
+  clearCart: () => void;
+  loading: boolean;
 };

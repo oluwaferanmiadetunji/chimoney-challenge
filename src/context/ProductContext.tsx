@@ -6,7 +6,10 @@ const ProductContext = createContext<ProductContextType>({
   products: [],
   cart: [],
   addProductToCart: (product: ProductType) => {},
-  removeProductFromCart: (productId: number) => {},
+  removeProductFromCart: (productId: string) => {},
+  deleteItemFromCart: (productId: string) => {},
+  clearCart: () => {},
+  loading: false,
 });
 
 export default ProductContext;

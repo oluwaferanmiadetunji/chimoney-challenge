@@ -5,7 +5,7 @@ import Loader from "components/loader";
 import ThemeProvider from "theme";
 import "react-toastify/dist/ReactToastify.css";
 import reportWebVitals from "./reportWebVitals";
-
+import './main.css'
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
