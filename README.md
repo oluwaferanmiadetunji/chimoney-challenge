@@ -22,7 +22,7 @@ yarn start
 The project would be available at [http://localhost:3000](http://localhost:3000/) 
 
 #### Features implemented
-- Product List: A page to show a list of products [Products](http://localhost:3000/products/) 
+- Product List: A page to show a list of products [Products](http://localhost:3000/) 
 - Cart: A page that contains items added to [Cart](http://localhost:3000/cart/) 
 
 

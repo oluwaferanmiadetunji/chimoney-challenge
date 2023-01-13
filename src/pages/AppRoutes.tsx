@@ -6,13 +6,8 @@ const Cart = lazy(() => import("pages/cart"));
 const Checkout = lazy(() => import("pages/checkout"));
 const ProductDetails = lazy(() => import("pages/product-details"));
 const Products = lazy(() => import("pages/products"));
-const Home = lazy(() => import("pages/home"));
 
 const router = createBrowserRouter([
-  {
-    path: ROUTES.CART,
-    element: <Home />,
-  },
   {
     path: ROUTES.CART,
     element: <Cart />,

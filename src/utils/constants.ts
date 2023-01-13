@@ -1,11 +1,10 @@
 import { faker } from "@faker-js/faker";
 
 export const ROUTES = {
-  PRODUCTS: "/products",
+  PRODUCTS: "/",
   PRODUCT_DETAILS: "/product/:id",
   CART: "/cart",
   CHECKOUT: "/checkout",
-  HOME:'/'
 };
 
 export const DummyBillingData = [
