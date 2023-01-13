@@ -5,6 +5,7 @@ export const ROUTES = {
   PRODUCT_DETAILS: "/product/:id",
   CART: "/cart",
   CHECKOUT: "/checkout",
+  HOME:'/'
 };
 
 export const DummyBillingData = [
